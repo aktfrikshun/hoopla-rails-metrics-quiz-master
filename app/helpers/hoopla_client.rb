@@ -23,6 +23,15 @@ class HooplaClient
     end
   end
 
+  def post(relative_url, params)
+    response = client.post(relative_url, params, "Content-Type" => "application/vnd.hoopla.metric-value+json")
+    if response.status == 200 || response.status == 201
+      JSON.parse(response.body)
+    else
+      raise StandardError('Invalid response from ')
+    end
+  end
+
   def get_relative_url(link)
     descriptor['links'].find { |l| l['rel'] == link }['href'].delete_prefix descriptor['href']
   end

@@ -1,2 +1,16 @@
-<h1>Metrics#show</h1>
-<p>Find me in app/views/metrics/show.html.erb</p>
+<h1>Metric Values</h1>
+<p>Click on a user to add metric value ( only if value = 0 )</p>
+
+<ul>
+<% @musers.each do | muser | %>
+  <li>
+  <% if muser["value"] > 0 %>
+      <%= muser["first_name"] %> <%= muser["last_name"] %> - <%= muser["value"] %>
+  <% else %>
+      <a href="/metrics/new/?metric_id=<%= @id %>&user_id=<%= external_id(muser["href"]) %>">
+        <%= muser["first_name"] %> <%= muser["last_name"] %> - <%= muser["value"] %>
+      </a>
+  <% end %>
+<% end %>
+</ul>
+
