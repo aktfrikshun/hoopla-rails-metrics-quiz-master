@@ -5,6 +5,7 @@ class MetricsController < ApplicationController
 
   def show
     @id = params[:id]
+    @name = params[:name]
     @musers = @hoopla_client.get("users",{}).sort_by { | u | [ u["first_name"], u["last_name"] ]}
     @mvalues = @hoopla_client.get("metrics/#{@id}/values",{})
 

@@ -3,6 +3,6 @@
 
 <ul>
 <% @metrics.each do | metric | %>
-  <li><a href="/metrics/<%= external_id(metric["href"]) %>"><%= metric["name"] %></a>
+  <li><a href="/metrics/<%= external_id(metric["href"]) %>/?name=<%= URI.escape(metric["name"]) %>"><%= metric["name"] %></a>
 <% end %>
 </ul>
