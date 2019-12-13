@@ -19,11 +19,13 @@ class HooplaClient
     if response.status == 200
       JSON.parse(response.body)
     else
-      @conn = nil
-      @token = nil
       raise StandardError.new('Invalid response from Hoopla ')
 
     end
+  end
+
+  def self.reset_connection
+    @@hoopla_client_singleton = HooplaClient.new
   end
 
   def post(relative_url, params)
@@ -31,8 +33,6 @@ class HooplaClient
     if response.status == 200 || response.status == 201
       JSON.parse(response.body)
     else
-      @conn = nil
-      @token = nil
       raise StandardError.new('Invalid response from Hoopla')
     end
   end
