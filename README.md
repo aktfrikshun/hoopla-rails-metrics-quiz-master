@@ -26,3 +26,38 @@ along with a skeleton of a rails app to get you past basic authentication, token
 4. Feel free to modify the HooplaClient helper class to add additional methods as necessary.
 5. Generate the appropriate models, views and controllers for the above requirements.
 6. Share the link to your Github repo.  Alternatively, zip up your entire Rails project and send to ​christine@hoopla.net
+
+## Solution Notes
+
+A development instance of the application is run from within a docker image and therefore has no software installation dependencies on the host os other than docker itself.
+
+* Ruby version
+  * 2.6.5
+
+* System dependencies
+  * bash shell
+  * git ( https://git-scm.com/downloads )
+  * docker ( https://hub.docker.com/?overlay=onboarding )
+
+* Build application docker image
+  * git clone git@github.com:aktfrikshun/hoopla-rails-metrics-quiz-master.git
+  * cd hoopla-rails-metrics-quiz-master
+  * scripts/build.bash
+
+* How to run the test suite
+  * scripts/run-tests.bash
+  * __Note__:  The test suite is executed on every commit and push.  These operations will not be permitted unless all test cases pass.
+
+* Open bash shell within docker image
+  * scripts/run-shell.bash
+
+* Open rails console
+  * scripts/run-console.bash
+
+* Run locally
+  * scripts/run-local.bash
+    * open a webbrowser and enter url http://localhost:3000
+
+* Deployment instructions
+  * Simply commit to master branch and AWS Code Pipeline will deploy to the AWS Elastic Beanstalk
+

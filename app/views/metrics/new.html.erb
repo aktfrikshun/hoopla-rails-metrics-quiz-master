@@ -1,0 +1,16 @@
+<h1>New Metric Value</h1>
+
+<p>User: <%= @muser["first_name"] %> <%= @muser["last_name"] %></p>
+<p>Metric: <%= @metric["name"] %></p>
+<%= form_tag("/metrics", method: "POST") do %>
+
+    <%= hidden_field_tag(:user_id, @user_id ) %>
+    <%= hidden_field_tag(:metric_id, @metric_id ) %>
+
+    <%= label_tag(:metric_value, "Please enter a value for this metric and user: ") %>
+
+    <%= number_field_tag(:metric_value) %>
+
+    <%= submit_tag("Save Metric Value") %>
+
+<% end %>
