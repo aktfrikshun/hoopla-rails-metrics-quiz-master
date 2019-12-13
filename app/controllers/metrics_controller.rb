@@ -25,10 +25,11 @@ class MetricsController < ApplicationController
   def create
     @user_id = params["user_id"]
     @metric_id = params["metric_id"]
+    @name = params["name"]
     @value = params["metric_value"]
 
     params  = "{ \"owner\":{ \"kind\": \"user\", \"href\": \"https://api.hoopla.net/users/#{@user_id}\" }, \"value\": #{@value} }"
     @hoopla_client.post("/metrics/#{@metric_id}/values", params )
-    redirect_to "/metrics/#{@metric_id}"
+    redirect_to "/metrics/#{@metric_id}/?name=#{URI.escape(@name)}"
   end
 end
