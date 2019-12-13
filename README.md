@@ -59,5 +59,5 @@ A development instance of the application is run from within a docker image and 
     * open a webbrowser and enter url http://localhost:3000
 
 * Deployment instructions
-  * Simply commit to master branch and AWS Code Pipeline will deploy to the AWS Elastic Beanstalk
+  * Simply commit to master branch and AWS Code Pipeline will deploy to the AWS Elastic Beanstalk at http://hoopla.us-east-1.elasticbeanstalk.com/
 
