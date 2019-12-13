@@ -19,7 +19,10 @@ class HooplaClient
     if response.status == 200
       JSON.parse(response.body)
     else
-      raise StandardError('Invalid response from ')
+      @conn = nil
+      @token = nil
+      raise StandardError.new('Invalid response from Hoopla ')
+
     end
   end
 
@@ -28,7 +31,9 @@ class HooplaClient
     if response.status == 200 || response.status == 201
       JSON.parse(response.body)
     else
-      raise StandardError('Invalid response from ')
+      @conn = nil
+      @token = nil
+      raise StandardError.new('Invalid response from Hoopla')
     end
   end
 
